@@ -104,6 +104,15 @@ Response:
 
 ---
 
+## Used By
+
+fzf-filterd is used as the fuzzy matching backend for the following project:
+
+- **SimpleLauncher** — A lightweight Windows application launcher
+  ([https://github.com/bamchoh/SimpleLauncher](https://github.com/bamchoh/SimpleLauncher))
+
+---
+
 ## Platform
 
 - Windows (Win32 Named Pipe)
