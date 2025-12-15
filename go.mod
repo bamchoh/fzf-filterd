@@ -1,4 +1,4 @@
-module test_fzf
+module fzf-filterd
 
 go 1.24.1
 

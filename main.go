@@ -180,11 +180,15 @@ func (t *TestRPC) SetCommandList(args *SetListArgs, reply *SetListReply) error {
 }
 
 func (t *TestRPC) innerFilter(args *FilterArgs, texts []string, typ string) (result []FilterResult, err error) {
+	caseSensitive := true
+	if strings.ToLower(args.Pattern) == args.Pattern {
+		caseSensitive = false
+	}
 	for _, text := range texts {
 		chars := util.ToChars([]byte(text))
 		var res algo.Result
 		var pos *[]int
-		res, pos = algo.FuzzyMatchV2(false, false, false, &chars, []rune(args.Pattern), true, nil)
+		res, pos = algo.FuzzyMatchV2(caseSensitive, false, false, &chars, []rune(args.Pattern), true, nil)
 		if res.Score > 0 {
 			result = append(result, FilterResult{
 				Type:  typ,
